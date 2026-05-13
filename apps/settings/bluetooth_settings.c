@@ -1,0 +1,2 @@
+#include "bluetooth_settings.h"
+void bluetooth_settings_run(void) { int win=window_create("Bluetooth",0,0,200,200); eink_clear(); eink_draw_string("Discoverable",10,30,0); window_draw(win); while(!(keypad_get_key()&2048)); }

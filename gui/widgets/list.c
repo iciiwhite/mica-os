@@ -1,0 +1,2 @@
+#include "list.h"
+void list_draw(int x, int y, int w, int h, char *items[], int count, int selected) { (void)w; (void)h; for(int i=0;i<count;i++) { eink_draw_string(items[i], x, y+i*10, i==selected?0:1); } }

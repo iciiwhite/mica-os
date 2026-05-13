@@ -1,0 +1,1 @@
+void test_window_create(void) {}

@@ -1,0 +1,4 @@
+CPU: Cortex-M3 @72MHz
+RAM: 64KB
+Flash: 512KB
+Display: E-ink 200x200

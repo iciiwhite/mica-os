@@ -1,0 +1,17 @@
+#ifndef MICA_BOARD_H
+#define MICA_BOARD_H
+
+#define CPU_FREQ_HZ 72000000
+#define HEAP_SIZE 65536
+#define MAX_TASKS 32
+#define MAX_QUEUES 16
+
+#define TASK_READY 0
+#define TASK_BLOCKED 1
+
+#define EINK_SPI_BUS 0
+#define KEYPAD_GPIO_PORT 0
+#define KEYPAD_ROW_PINS 0x0F
+#define KEYPAD_COL_PINS 0xF0
+
+#endif

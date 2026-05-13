@@ -1,0 +1,2 @@
+#include "dialog.h"
+int dialog_confirm(const char *msg) { int win=window_create("Confirm",0,0,200,200); eink_clear(); eink_draw_string(msg,10,30,0); eink_draw_string("1=Yes 2=No",10,50,0); eink_refresh(); uint16_t k=0; while(!k) k=keypad_get_key(); return (k&1)?1:0; }

@@ -1,0 +1,1 @@
+CFLAGS += -DNDEBUG -O2 -flto

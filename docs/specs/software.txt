@@ -1,0 +1,2 @@
+MICA OS v1.0
+RTOS, GUI, FS, Networking

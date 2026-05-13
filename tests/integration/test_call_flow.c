@@ -1,0 +1,1 @@
+void test_make_call(void) {}

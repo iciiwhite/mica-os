@@ -1,0 +1,1 @@
+CFLAGS += -DDEBUG -O0
