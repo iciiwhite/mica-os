@@ -101,13 +101,13 @@ Install the following tools on your development machine:
 - `Pillow` (Python imaging library, `pip install Pillow`)
 - `git`
 
-On Ubuntu/Debian:
+## 0n Ubuntu/Debian:
 ```bash
 sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi make python3-pip
 pip3 install Pillow
 ```
 
-On macOS:
+## On macOS:
 
 ```bash
 brew install arm-none-eabi-gcc make python3
@@ -116,30 +116,14 @@ pip3 install Pillow
 
 ---
 
-Building the Firmware
+## Building the Firmware
 
 1. Clone the repository
    ```bash
    git clone https://github.com/iciiwhite/mica-os.git
    cd mica-os
    ```
-2. Generate the folder structure and source files
-      Run the three provided Python scripts in order:
-   ```bash
-   python3 create_mica_folders.py
-   python3 generate_all_mica_sources.py
-   python3 generate_more_mica_sources.py
-   python3 generate_final_mica_sources.py
-   ```
-3. Prepare assets
-      Place your boot logos, icons, fonts, and sounds according to the instructions in docs/asset_guide.md.
-      Then generate the raw framebuffer files and resized icons:
-   ```bash
-   python3 prepare_assets.py
-   python3 crop_gif.py
-   python3 generate_fonts.py
-   ```
-4. Compile the firmware
+2.Compile the firmware
    ```bash
    cd build
    make
