@@ -118,12 +118,12 @@ pip3 install Pillow
 
 ## Building the Firmware
 
-1. Clone the repository
+### 1. Clone the repository
    ```bash
    git clone https://github.com/iciiwhite/mica-os.git
    cd mica-os
    ```
-2.Compile the firmware
+### 2.Compile the firmware
    ```bash
    cd build
    make
@@ -132,28 +132,30 @@ pip3 install Pillow
 
 ---
 
-Flashing to Hardware
+## Flashing to Hardware
 
-Step 1 – Choose your flashing method
+### Step 1 – Choose your flashing method
 
 Programmer Target chip Command example
+```bash
 ST-Link (SWD) STM32 series st-flash write mica.bin 0x8000000
 USB DFU STM32 with DFU boot dfu-util -D mica.bin -a 0
 Serial (UART) Any with bootloader lpc21isp mica.bin /dev/ttyUSB0 115200
 SPI flash tool Dedicated flash chip flashrom -p linux_spi:dev=/dev/spidev0.0 -w mica.bin
 SD card (FAT) Boot from SD Copy mica.bin to root of SD, rename to mica.bin
+```
 
-For the reference STM32F103 board using ST‑Link:
+### For the reference STM32F103 board using ST‑Link:
 
 ```bash
 st-flash --reset write build/mica.bin 0x8000000
 ```
 
-Step 2 – Verify the flash
+## Step 2 – Verify the flash
 
 After flashing, reset the board. The E‑ink display should show the boot logo, then the main menu.
 
-Step 3 – First time configuration
+## Step 3 – First time configuration
 
 · Connect a GSM antenna and SIM card.
 · Insert a FAT32 formatted microSD card.
@@ -161,7 +163,7 @@ Step 3 – First time configuration
 
 ---
 
-First Boot and Usage
+## First Boot and Usage
 
 · Navigation: Use the physical keypad (rows 1‑4, columns 1‑4).
   · Up (row 1, col 2)  – previous item
@@ -173,29 +175,29 @@ First Boot and Usage
 · Mesh messaging: Enable mesh radio in Settings → Network → Mesh. Any nearby Mica phone will automatically relay messages.
 · Camera: Press the dedicated camera button (keypad row 1, col 1) to capture and save JPEGs to SD card.
 
-All applications are accessible from the main menu (launcher).
+> All applications are accessible from the main menu (launcher).
 
 ---
 
-Customisation
+## Customisation
 
-Changing the boot logo
+## Changing the boot logo
 
 Replace assets/images/boot_logo/logo.raw and logo2.raw with your own 200×200, 1‑bit packed raw images (5000 bytes each). Run prepare_assets.py to convert from PNG.
 
-Adding ringtones
+## Adding ringtones
 
 Place .wav files in assets/sounds/ringtones/. They will appear in Settings → Sound → Ringtone.
 
-Modifying the font
+## Modifying the font
 
-Replace assets/fonts/font.bin, 8x16.bin, 12x24.bin with your own bitmap font data. Use generate_fonts.py to create a basic font from a character set.
+Replace assets/fonts/font.bin, 8x16.bin, 12x24.bin with your own bitmap font data.
 
-Changing the theme
+## Changing the theme
 
 Edit assets/themes/default/theme.txt or create a new folder and select it from Settings → Display → Theme.
 
-Adding new applications
+## Adding new applications
 
 1. Create a new subfolder under apps/ with your app’s *.c and *.h.
 2. Register the app in apps/launcher/launcher.c by adding its name to the items[] array and a case in the switch.
@@ -203,32 +205,34 @@ Adding new applications
 
 ---
 
-Troubleshooting
+## Troubleshooting
 
-Problem Likely cause and solution
-No display after flash Check E‑ink SPI connections and power. Verify eink_init() in drivers/display/eink/eink_driver.c.
+**Problem Likely cause and solution**
+
+**No display after flash** - Check E‑ink SPI connections and power. Verify eink_init() in drivers/display/eink/eink_driver.c.
 Keypad not responding Run keypad_scan() manually in debug build. Confirm row/col pins in mica_board.h.
-SD card not mounted Ensure card is FAT32. Check SPI bus and chip select. Use fat32_mount() return value.
+
+**SD card not mounted** - Ensure card is FAT32. Check SPI bus and chip select. Use fat32_mount() return value.
 GSM module does not register network Antenna connected? SIM inserted? Power cycle the module (see drivers/gsm/gsm.c).
-Mesh radio no communication Both devices must be on the same channel and encryption key. Adjust in mesh_proto.c.
-Compilation errors – missing headers Run all four Python generation scripts again. Verify folder structure.
-Binary too large for flash Reduce features, compile with -Os, or use a microcontroller with more flash.
+**Mesh radio no communication** - Both devices must be on the same channel and encryption key. Adjust in mesh_proto.c.
+**Compilation errors** – missing headers. Verify folder structure.
+**Binary too large for flash** - Reduce features, compile with -Os, or use a microcontroller with more flash.
 
 For detailed debugging, connect a serial console (UART, 115200 baud) – the kernel prints early boot messages.
 
 ---
 
-License
+## License
 
 Mica OS is released under the GNU General Public License v3.0.
 You may use, modify, and distribute the software freely, provided that any derivative work is also open source under the GPLv3.
 
 Executable (binary) images that run on hardware may be sold, but the corresponding source code must be made available to the buyers under the same license.
 
-Full license text is in the [LICENSE file](LICENSE) in the repository.
+### Full license text is in the [LICENSE file](LICENSE) in the repository.
 
 ---
 
-Software by [Icii White](https://iciiwhite.github.io)
+>note Software by [Icii White](https://iciiwhite.github.io)
 
 Last updated: 2025-05-13
