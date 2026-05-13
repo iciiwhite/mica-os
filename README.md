@@ -233,6 +233,6 @@ Executable (binary) images that run on hardware may be sold, but the correspondi
 
 ---
 
->note Software by [Icii White](https://iciiwhite.github.io)
+> Software by [Icii White](https://iciiwhite.github.io)
 
 Last updated: 2025-05-13
