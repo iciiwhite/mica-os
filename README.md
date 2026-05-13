@@ -5,7 +5,7 @@
 ![Build](https://img.shields.io/badge/build-makefile-green)
 [![GitHub repo](https://img.shields.io/badge/GitHub-iciiwhite%2Fmica--os-lightgrey)](https://github.com/iciiwhite/mica-os)
 
-**Mica OS** is a from‑scratch, minimal, real‑time operating system for button‑based feature phones. It is designed for E‑ink displays, physical keyboards, and ultra‑low power consumption. The entire system is written in C and Assembly, with no comments in the source code, and is fully self‑contained.
+**Mica OS** is a from‑scratch, minimal, real‑time operating system for button‑based feature phones. It is designed for E‑ink displays, physical keyboards, and ultra‑low power consumption. The entire system is written in C and Assembly, and is fully self‑contained.
 
 **Author:** Icii White  
 **Repository:** [github.com/iciiwhite/mica-os](https://github.com/iciiwhite/mica-os)
